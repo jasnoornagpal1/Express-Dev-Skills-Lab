@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= typeof title === 'undefined' ? 'Default Title' : title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% if (skill) { %>
+    <h1>skill #<%= skill.id %></h1>
+    <h3><%= skill.skill %></h3>
+    <h3>Complete: <%= skill.done ? 'Yes': 'No' %></h3>
+    <% } else { %>
+    <h3>Skill Not Acquired Yet!</h3>
+    <% } %>
+  </body>
+</html>
