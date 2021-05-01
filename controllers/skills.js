@@ -5,7 +5,9 @@ module.exports = {
     show,
     newSkill,
     create,
-    delete: deleteOne
+    delete: deleteOne,
+    edit, 
+    update
 }
 
 function newSkill(req, res) {
@@ -32,6 +34,18 @@ function show(req, res) {
         // Would like to display the number of the todo within the list
         skillNum: Skill.getAll().findIndex(skill => skill.id === parseInt(req.params.id)) + 1
       });
+}
+
+function edit(req, res) {
+    let skill_to_edit = Skill.getOne(req.params.id)
+    res.render('skills/edit.ejs', { skill_to_edit });
+}
+
+function update(req, res) {
+   // req.body.done = req.body.done === "on";
+    Skill.update(req.params.id, req.body);
+    res.redirect('/skills')
+    res.send("thanks for the update!")
 }
 
 function deleteOne(req, res) {

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/skills/<%= skill_to_edit.id %>?_method=PUT" autocomplete="off">
+        <h2>Edit Skill Below:</h2>
+        <input type="text" name="skill" value="<%= skill_to_edit.skill %>">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
