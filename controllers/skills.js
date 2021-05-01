@@ -4,7 +4,8 @@ module.exports = {
     index,
     show,
     newSkill,
-    create
+    create,
+    delete: deleteOne
 }
 
 function newSkill(req, res) {
@@ -31,4 +32,10 @@ function show(req, res) {
         // Would like to display the number of the todo within the list
         skillNum: Skill.getAll().findIndex(skill => skill.id === parseInt(req.params.id)) + 1
       });
+}
+
+function deleteOne(req, res) {
+    Skill.deleteOne(req.params.id);
+    res.redirect('/skills')
+    res.send("Deleted, boy bye!")
 }
